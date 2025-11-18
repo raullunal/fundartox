@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Conoce todos los servicios de Fundartox: prevención, investigación, docencia, servicios comunitarios y convenios internacionales.">
+    <title>Servicios - Fundartox</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --color-primary: #2563eb; --color-primary-dark: #1d4ed8; --color-secondary: #059669;
+            --color-neutral-100: #f9fafb; --color-neutral-200: #e5e7eb; --color-neutral-800: #1f2937;
+            --color-neutral-900: #111827; --color-text-primary: #111827; --color-text-secondary: #4b5563;
+            --font-sans: 'Inter', sans-serif; --spacing-md: 1.5rem; --spacing-lg: 2rem; --spacing-xl: 3rem;
+            --spacing-2xl: 4rem; --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1); --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1);
+            --radius-lg: 0.75rem; --radius-xl: 1rem; --transition-normal: 0.3s ease-in-out;
+        }
+        @media (prefers-color-scheme: dark) {
+            :root { --color-neutral-100: #111827; --color-text-primary: #f9fafb;
+                --color-text-secondary: #e5e7eb; --color-neutral-200: #1f2937; }
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: var(--font-sans); line-height: 1.6; color: var(--color-text-primary);
+            background: var(--color-neutral-100);
+        }
+        img { max-width: 100%; height: auto; display: block; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 var(--spacing-md); }
+        .section { padding: var(--spacing-2xl) 0; }
+        .header {
+            position: fixed; top: 0; left: 0; right: 0; background: rgba(249,250,251,0.95);
+            backdrop-filter: blur(10px); border-bottom: 1px solid var(--color-neutral-200);
+            z-index: 1000; transition: all var(--transition-normal);
+        }
+        .nav { display: flex; justify-content: space-between; align-items: center; padding: 1rem 0; }
+        .logo { height: 40px; }
+        .nav-menu { display: flex; list-style: none; gap: 2rem; }
+        .nav-link { font-weight: 500; color: var(--color-text-primary); padding: 0.5rem 1rem;
+            border-radius: var(--radius-lg); transition: all var(--transition-normal); }
+        .nav-link:hover, .nav-link.active { background: var(--color-neutral-200); color: var(--color-primary); }
+        .nav-link.active { font-weight: 600; }
+        .page-header {
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+            color: white; padding: 120px 0 var(--spacing-xl); text-align: center;
+        }
+        .page-title { font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 700; margin-bottom: var(--spacing-md); }
+        .page-subtitle { font-size: 1.25rem; opacity: 0.9; max-width: 700px; margin: 0 auto; }
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: var(--spacing-xl); }
+        .service-card {
+            background: var(--color-neutral-100); border-radius: var(--radius-xl); overflow: hidden;
+            box-shadow: var(--shadow-md); transition: all var(--transition-normal);
+            border: 1px solid var(--color-neutral-200);
+        }
+        .service-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); }
+        .service-image { width: 100%; height: 200px; object-fit: cover; }
+        .service-content { padding: var(--spacing-lg); }
+        .service-title { font-size: 1.5rem; font-weight: 600; margin-bottom: var(--spacing-sm); color: var(--color-text-primary); }
+        .service-description { color: var(--color-text-secondary); line-height: 1.7; }
+        .service-description p { margin-bottom: var(--spacing-sm); }
+        .service-description ul { margin-left: var(--spacing-md); margin-top: var(--spacing-sm); }
+        .service-description li { margin-bottom: var(--spacing-xs); }
+        .convenios-section { background: var(--color-neutral-200); }
+        .convenios-list { background: var(--color-neutral-100); border-radius: var(--radius-lg); padding: var(--spacing-lg); margin-top: var(--spacing-lg); }
+        .convenio-item { padding: var(--spacing-md); border-left: 4px solid var(--color-primary); margin-bottom: var(--spacing-md); background: var(--color-neutral-100); border-radius: var(--radius-sm); }
+        .convenio-year { font-weight: 700; color: var(--color-primary); font-size: 1.125rem; }
+        .footer { background: var(--color-neutral-900); color: white; padding: var(--spacing-xl) 0; text-align: center; }
+        .footer-content { display: flex; flex-direction: column; align-items: center; gap: var(--spacing-lg); }
+        .footer-logo { height: 60px; }
+        .footer-bottom { margin-top: var(--spacing-lg); padding-top: var(--spacing-lg); border-top: 1px solid var(--color-neutral-700); color: var(--color-neutral-400); font-size: 0.875rem; }
+
+        @media (max-width: 768px) {
+            .nav-menu { position: fixed; left: -100%; top: 60px; flex-direction: column; background: var(--color-neutral-100);
+                width: 100%; text-align: center; transition: left var(--transition-normal);
+                box-shadow: var(--shadow-md); padding: var(--spacing-lg) 0; }
+            .nav-menu.active { left: 0; }
+            .mobile-menu-toggle { display: block; background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--color-text-primary); }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav container">
+            <img src="https://fundartox.org/assets/logo/fundartox-logo-happy-fit.svg" alt="Fundartox Logo" class="logo">
+            <button class="mobile-menu-toggle" id="mobileMenuToggle"><i class="fas fa-bars"></i></button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html" class="nav-link">Inicio</a></li>
+                <li><a href="nosotros.html" class="nav-link">Nosotros</a></li>
+                <li><a href="servicios.html" class="nav-link active">Servicios</a></li>
+                <li><a href="investigacion.html" class="nav-link">Investigación</a></li>
+                <li><a href="prevencion.html" class="nav-link">Prevención</a></li>
+                <li><a href="contacto.html" class="nav-link">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="page-header">
+        <div class="container">
+            <h1 class="page-title">SERVICIOS</h1>
+            <p class="page-subtitle">Soluciones integrales en toxicología médica para instituciones, profesionales y comunidad</p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-content">
+                        <h3 class="service-title">Prevención y Asistencia Integral</h3>
+                        <div class="service-description">
+                            <p>La Fundación lleva adelante una política de prevención y promoción de hábitos saludables en colegios e instituciones públicas y privadas.</p>
+                            <p>Ha firmado acuerdos con el Gobierno de la Provincia de Buenos Aires para instalar una Política de Prevención y Control del Consumo de Sustancias Psicoactivas en la Policía Bonaerense a través de su Ministerio de Seguridad y con el Gobierno de la Provincia de Tierra del Fuego, Antártida e Islas del Atlántico Sur para una tarea similar que incluye al Servicio Penitenciario provincial.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <img src="https://fundartox.org/assets/img/fundartox-1.webp" alt="Investigación Fundartox" class="service-image">
+                </div>
+
+                <div class="service-card">
+                    <div class="service-content">
+                        <h3 class="service-title">Docencia y Capacitación</h3>
+                        <div class="service-description">
+                            <p>Generamos y difundimos conocimientos médicos e interdisciplinarios afines, destinados a la prevención y el desarrollo de las patologías vinculadas a la toxicología, a cuyo efecto podrá realizar programas de apoyo, de divulgación y educación, organización de jornadas, seminarios, cursos, talleres y reuniones.</p>
+                            <p>En 2017 firmó un convenio con la Facultad de Medicina de la Universidad de Buenos Aires para la «cooperación, complementación e intercambio académico, que contribuya al desarrollo institucional, incrementando la capacidad docente y desarrollando la investigación científica, tecnológica, social y cultural».</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <img src="https://fundartox.org/assets/img/fundartox-2.webp" alt="Docencia Fundartox" class="service-image">
+                </div>
+
+                <div class="service-card">
+                    <div class="service-content">
+                        <h3 class="service-title">Servicios a la Comunidad</h3>
+                        <div class="service-description">
+                            <p>La Fundación posee un programa de Prevención de Consumos problemáticos de sustancias psicoactivas en Contextos Educativos, donde lleva adelante talleres para alumnos, encuentros para padres, talleres de formación para el personal docente y realiza asesoramiento institucional.</p>
+                            <p>A principios de 2018, Fundartox participó de la campaña "Chicos sin alcohol", por iniciativa del Consejo Publicitario Argentino, formando parte de su Comisión organizadora y como asesora de contenidos científicos junto a la Fundación Padres y la CT El Reparo, con el objetivo de concientizar sobre la importancia del rol parental, la disminución sostenida de la edad de inicio del consumo de alcohol y el daño que genera en la salud.</p>
+                            <p>La prevención de intoxicaciones por monóxido de carbono ha sido una constante en su actividad de todos los inviernos, junto a otras organizaciones científicas y de la sociedad civil.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <img src="https://fundartox.org/assets/img/fundartox-3.webp" alt="Servicios comunitarios" class="service-image">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section convenios-section">
+        <div class="container">
+            <h2 style="font-size: 2rem; font-weight: 600; text-align: center; margin-bottom: var(--spacing-lg);">Convenios Institucionales</h2>
+            <div class="convenios-list">
+                <div class="convenio-item">
+                    <span class="convenio-year">2015</span><br>
+                    Convenio con la Organización de Estados Americanos para llevar adelante un Estudio internacional y multicéntrico sobre el impacto neurológico del consumo de cocaínas fumables, en el Hospital Fernández.
+                </div>
+                <div class="convenio-item">
+                    <span class="convenio-year">2017</span><br>
+                    Convenio con la Facultad de Medicina de la Universidad de Buenos Aires para la «cooperación, complementación e intercambio académico, que contribuya al desarrollo institucional, incrementando la capacidad docente y desarrollando la investigación científica, tecnológica, social y cultural».
+                </div>
+                <div class="convenio-item">
+                    <span class="convenio-year">Provincia de Buenos Aires</span><br>
+                    Acuerdo para instalar una Política de Prevención y Control del Consumo de Sustancias Psicoactivas en la Policía Bonaerense a través de su Ministerio de Seguridad.
+                </div>
+                <div class="convenio-item">
+                    <span class="convenio-year">Tierra del Fuego</span><br>
+                    Acuerdo con el Gobierno de la Provincia de Tierra del Fuego, Antártida e Islas del Atlántico Sur para prevención del consumo de sustancias que incluye al Servicio Penitenciario provincial.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <img src="https://fundartox.org/assets/logo/fundartox-logo-happy-fit.svg" alt="Fundartox" class="footer-logo">
+                <p class="footer-text">
+                    Fundartox - Fundación de Toxicología Médica<br>
+                    Organización sin fines de lucro dedicada a la prevención, diagnóstico y tratamiento de patologías vinculadas a la toxicología médica.
+                </p>
+                <div class="footer-bottom">
+                    <p>&copy; 2024 Fundartox. Todos los derechos reservados.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const navMenu = document.getElementById('navMenu');
+        mobileMenuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            const icon = mobileMenuToggle.querySelector('i');
+            icon.classList.toggle('fa-bars'); icon.classList.toggle('fa-times');
+        });
+    </script>
+</body>
+</html>
