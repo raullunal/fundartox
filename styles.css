@@ -647,7 +647,7 @@ a:hover {
 @media (max-width: 768px) {
     .service.card {
         grid-template-columns: 1fr;}
-    .uno-dos-tercios {
+    .uno-dos-tercios .service.card {
         grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));}   
     }
 /* ==========================================
