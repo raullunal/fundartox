@@ -561,7 +561,11 @@ a:hover {
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     gap: var(--spacing-xl);
 }
-
+.uno-dos-tercios {
+    display: grid; /* Establece el contenedor como una cuadrícula */
+    grid-template-columns: 1fr 2fr; /* Define dos columnas, una con 1 fracción y otra con 2 */
+    gap: (--spacing-xl); /* Añade espacio entre las columnas */
+}
 .service-card {
     background: var(--color-neutral-100);
     border-radius: var(--radius-xl);
