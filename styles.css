@@ -645,7 +645,7 @@ a:hover {
     color: var(--color-text-secondary);
 }
 @media (max-width: 768px) {
-    .service.card {
+    .service.card .uno-dos-tercios{
         grid-template-columns: 1fr;
     }
 /* ==========================================
